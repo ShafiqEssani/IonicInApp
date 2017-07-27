@@ -10,14 +10,15 @@ templateUrl: 'home.html'
 })
 export class HomePage {
 
-constructor( public platform: Platform,public navCtrl: NavController) {
+    constructor( public platform: Platform,public navCtrl: NavController) {
 
-}
-openUrl() {
+    }
 
+    ionViewWillEnter(){
         this.platform.ready().then(() => {
-            new InAppBrowser("https://www.google.com",'_self');
+                new InAppBrowser("https://www.google.com",'_self');
 
-        });
-}
+            });
+        
+    }
 }

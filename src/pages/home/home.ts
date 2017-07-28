@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Platform} from 'ionic-angular';
+import { Platform, } from 'ionic-angular';
 
 import { InAppBrowser } from 'ionic-native';
 
@@ -11,17 +11,12 @@ templateUrl: 'home.html'
 
 export class HomePage {
 
-    constructor( public platform: Platform) {
+    constructor( public platform: Platform, ) {
       platform.ready().then(() => {
           new InAppBrowser("https://www.logojeeves.com",'_self',"location=no,zoom=no");
     });
 
-    platform.registerBackButtonAction(() => {
-       platform.exitApp();
-     });
+
 
   }
-    //ionViewWillEnter(){
-
-      //      });
 }

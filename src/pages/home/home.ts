@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController , Platform} from 'ionic-angular';
+import { Platform} from 'ionic-angular';
 
 import { InAppBrowser } from 'ionic-native';
 
@@ -8,17 +8,20 @@ import { InAppBrowser } from 'ionic-native';
 selector: 'page-home',
 templateUrl: 'home.html'
 })
+
 export class HomePage {
 
-    constructor( public platform: Platform,public navCtrl: NavController) {
+    constructor( public platform: Platform) {
+      platform.ready().then(() => {
+          new InAppBrowser("https://www.logojeeves.com",'_self',"location=no,zoom=no");
+    });
 
-    }
+    platform.registerBackButtonAction(() => {
+       platform.exitApp();
+     });
 
-    ionViewWillEnter(){
-        this.platform.ready().then(() => {
-                new InAppBrowser("https://www.google.com",'_self');
+  }
+    //ionViewWillEnter(){
 
-            });
-        
-    }
+      //      });
 }
